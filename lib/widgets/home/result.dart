@@ -25,11 +25,12 @@ class _ResultState extends State<Result> {
   double? _progress;
   String _status = '';
   bool _isDownloading = false;
+  bool _isDownloadFinish = false;
 
   void _downloadVideo(String id, String play, BuildContext context) async {
     FileDownloader.downloadFile(
       url: widget.play,
-      name: "${widget.id}.mp4",
+      name: "NoMarkTik-${widget.id}.mp4",
       downloadDestination: DownloadDestinations.publicDownloads,
       notificationType: NotificationType.all,
       onProgress: (name, progress) {
@@ -47,6 +48,7 @@ class _ResultState extends State<Result> {
           _progress = null;
           _status = 'File downloaded to: $path';
           _isDownloading = false;
+          _isDownloadFinish = true;
         });
       },
       onDownloadError: (error) {
@@ -124,26 +126,28 @@ class _ResultState extends State<Result> {
         const SizedBox(
           height: 10.0,
         ),
-        SizedBox(
-          width: double.infinity,
-          child: ElevatedButton(
-            onPressed: _isDownloading
-                ? null
-                : () => _downloadVideo(widget.id, widget.play, context),
-            style: ElevatedButton.styleFrom(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(5.0),
+        if (!_isDownloadFinish) ...[
+          SizedBox(
+            width: double.infinity,
+            child: ElevatedButton(
+              onPressed: _isDownloading
+                  ? null
+                  : () => _downloadVideo(widget.id, widget.play, context),
+              style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5.0),
+                ),
+                backgroundColor: Colors.purple,
               ),
-              backgroundColor: Colors.purple,
-            ),
-            child: const Text(
-              "Download Video",
-              style: TextStyle(
-                color: Colors.white,
+              child: const Text(
+                "Download Video",
+                style: TextStyle(
+                  color: Colors.white,
+                ),
               ),
             ),
           ),
-        ),
+        ],
       ],
     );
   }
