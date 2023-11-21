@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class MyTextField extends StatefulWidget {
   // ignore: prefer_typing_uninitialized_variables
@@ -61,26 +60,6 @@ class _MyTextFieldState extends State<MyTextField> {
           ),
           prefixIcon: widget.icon,
           prefixIconColor: MaterialStateColor.resolveWith(
-            (Set<MaterialState> states) {
-              if (states.contains(MaterialState.focused)) {
-                return Colors.black45;
-              }
-              if (states.contains(MaterialState.error)) {
-                return Colors.red;
-              }
-              return Colors.black45;
-            },
-          ),
-          suffixIcon: widget.controller.text.isNotEmpty
-              ? IconButton(
-                  onPressed: () {
-                    setState(() {
-                      widget.controller.clear();
-                    });
-                  },
-                  icon: const Icon(Icons.clear))
-              : null,
-          suffixIconColor: MaterialStateColor.resolveWith(
             (Set<MaterialState> states) {
               if (states.contains(MaterialState.focused)) {
                 return Colors.black45;
