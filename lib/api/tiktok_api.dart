@@ -14,8 +14,8 @@ class TiktokApiClient {
       return null;
     }
 
-    final response =
-        await http.get(Uri.parse("https://www.tikwm.com/api/?url=$apiUrl"));
+    final response = await http
+        .get(Uri.parse("https://www.tikwm.com/api/?url=$apiUrl?hd=1"));
 
     if (response.statusCode == 200) {
       // Successful response
