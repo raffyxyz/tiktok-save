@@ -1,6 +1,6 @@
-# downloader_app
+# NoMarkTik
 
-A new Flutter project.
+Download tiktok videos without the annoying watermark for free with no ads.
 
 ## Getting Started
 
