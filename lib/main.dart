@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
     );
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'SaveTok',
+      title: 'NoMarkTik',
       theme: ThemeData(
         // This is the theme of your application.
         //
