@@ -13,6 +13,10 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   int _selectedPage = 0;
+  final _pages = [
+    const HomeWidget(),
+    const DownloadWidget(),
+  ];
 
   void setPage(int currentPage) {
     setState(() {
@@ -26,7 +30,10 @@ class _MainScreenState extends State<MainScreen> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: const Text("SaveTok"),
+        title: const Text(
+          "NoMarkTik",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
         actions: [
           IconButton(
             onPressed: () {
@@ -37,12 +44,10 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ],
       ),
-      body: <Widget>[
-        /// Home page
-        HomeWidget(),
-        //Downloads
-        const DownloadWidget(),
-      ][_selectedPage],
+      body: IndexedStack(
+        index: _selectedPage,
+        children: _pages,
+      ),
       bottomNavigationBar: BottomNavigation(
         setPage: setPage,
       ),
