@@ -1,6 +1,8 @@
 import 'package:downloader_app/api/tiktok_api.dart';
 import 'package:downloader_app/models/Tiktok.dart';
+import 'package:downloader_app/widgets/home/guide_widget.dart';
 import 'package:downloader_app/widgets/home/result.dart';
+import 'package:downloader_app/widgets/steps.dart';
 import 'package:flutter/material.dart';
 import 'package:downloader_app/widgets/text_field.dart';
 
@@ -84,9 +86,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                         id: "${snapshot.data!.data?.id}",
                       );
               } else {
-                return const Center(
-                  child: Text("Download your tiktok videos now."),
-                );
+                return GuideWidget();
               }
             },
           ),
