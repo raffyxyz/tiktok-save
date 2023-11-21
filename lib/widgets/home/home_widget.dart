@@ -71,15 +71,22 @@ class _HomeWidgetState extends State<HomeWidget> {
                   child: CircularProgressIndicator(),
                 );
               } else if (snapshot.hasData) {
-                return Result(
-                  cover: "${snapshot.data!.data?.originCover}",
-                  author: "${snapshot.data!.data!.author?.nickname}",
-                  title: "${snapshot.data!.data?.title}",
-                  play: "${snapshot.data!.data!.play}",
-                  id: "${snapshot.data!.data!.id}",
-                );
+                // Final check if.
+                return snapshot.data!.data == null
+                    ? const Center(
+                        child: Text("No video data found."),
+                      )
+                    : Result(
+                        cover: "${snapshot.data!.data?.originCover}",
+                        author: "${snapshot.data!.data?.author?.nickname}",
+                        title: "${snapshot.data!.data?.title}",
+                        play: "${snapshot.data!.data?.play}",
+                        id: "${snapshot.data!.data?.id}",
+                      );
               } else {
-                return const Text('No data available');
+                return const Center(
+                  child: Text("Download your tiktok videos now."),
+                );
               }
             },
           ),

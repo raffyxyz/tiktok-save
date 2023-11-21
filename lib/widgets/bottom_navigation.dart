@@ -15,7 +15,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 50.0, vertical: 16.0),
+      padding: const EdgeInsets.symmetric(horizontal: 50.0, vertical: 10.0),
       child: GNav(
         gap: 8,
         color: Colors.grey.shade700,
