@@ -30,6 +30,7 @@ class _MainScreenState extends State<MainScreen> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
+        surfaceTintColor: Colors.white,
         title: const Text(
           "NoMarkTik",
           style: TextStyle(fontWeight: FontWeight.bold),
