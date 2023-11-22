@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
     );
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'NoMarkTik',
+      title: 'Tiktok Save',
       theme: ThemeData(
         // This is the theme of your application.
         //

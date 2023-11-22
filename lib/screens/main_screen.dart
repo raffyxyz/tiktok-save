@@ -32,13 +32,18 @@ class _MainScreenState extends State<MainScreen> {
         backgroundColor: Colors.white,
         surfaceTintColor: Colors.white,
         title: const Text(
-          "NoMarkTik",
+          "Tiktok Save",
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         actions: [
           IconButton(
             onPressed: () {
-              debugPrint("Pressed");
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                content: Center(
+                    child: Text(
+                  "In development.",
+                )),
+              ));
             },
             icon: const Icon(Icons.settings),
             tooltip: "Settings",
