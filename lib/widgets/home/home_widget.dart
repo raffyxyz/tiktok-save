@@ -2,7 +2,6 @@ import 'package:downloader_app/api/tiktok_api.dart';
 import 'package:downloader_app/models/Tiktok.dart';
 import 'package:downloader_app/widgets/home/guide_widget.dart';
 import 'package:downloader_app/widgets/home/result.dart';
-import 'package:downloader_app/widgets/steps.dart';
 import 'package:flutter/material.dart';
 import 'package:downloader_app/widgets/text_field.dart';
 
@@ -81,12 +80,14 @@ class _HomeWidgetState extends State<HomeWidget> {
                     : Result(
                         cover: "${snapshot.data!.data?.originCover}",
                         author: "${snapshot.data!.data?.author?.nickname}",
-                        title: "${snapshot.data!.data?.title}",
+                        title: snapshot.data!.data?.title == null
+                            ? ""
+                            : "${snapshot.data!.data?.title}",
                         play: "${snapshot.data!.data?.play}",
                         id: "${snapshot.data!.data?.id}",
                       );
               } else {
-                return GuideWidget();
+                return const GuideWidget();
               }
             },
           ),

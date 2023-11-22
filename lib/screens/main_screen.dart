@@ -1,5 +1,5 @@
 import 'package:downloader_app/widgets/bottom_navigation.dart';
-import 'package:downloader_app/widgets/download_widget.dart';
+import 'package:downloader_app/widgets/history/history_widget.dart';
 import 'package:downloader_app/widgets/home/home_widget.dart';
 
 import 'package:flutter/material.dart';
@@ -15,7 +15,7 @@ class _MainScreenState extends State<MainScreen> {
   int _selectedPage = 0;
   final _pages = [
     const HomeWidget(),
-    const DownloadWidget(),
+    const HistoryWidget(),
   ];
 
   void setPage(int currentPage) {

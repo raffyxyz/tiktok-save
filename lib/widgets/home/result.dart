@@ -1,5 +1,8 @@
+import 'package:downloader_app/models/History.dart';
+import 'package:downloader_app/widgets/card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_file_downloader/flutter_file_downloader.dart';
+import 'package:hive/hive.dart';
 
 class Result extends StatefulWidget {
   final String cover;
@@ -22,10 +25,27 @@ class Result extends StatefulWidget {
 }
 
 class _ResultState extends State<Result> {
+  late final Box historyBox;
   double? _progress;
   String _status = '';
   bool _isDownloading = false;
   bool _isDownloadFinish = false;
+
+  @override
+  void initState() {
+    super.initState();
+    historyBox = Hive.box("historyBox");
+  }
+
+  void _addHistory(String filePath) async {
+    History newHistory = History(
+        cover: widget.cover,
+        author: widget.author,
+        title: widget.title,
+        filePath: filePath);
+    historyBox.add(newHistory);
+    debugPrint("Added history");
+  }
 
   void _downloadVideo(String id, String play, BuildContext context) async {
     FileDownloader.downloadFile(
@@ -62,6 +82,7 @@ class _ResultState extends State<Result> {
         });
       },
     ).then((file) {
+      _addHistory("${file?.path}");
       debugPrint("file path: ${file?.path}");
     });
   }
@@ -70,43 +91,44 @@ class _ResultState extends State<Result> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(5.0),
-              child: SizedBox(
-                width: 80,
-                height: 90,
-                child: FittedBox(
-                  fit: BoxFit.cover,
-                  child: Image.network(
-                    widget.cover,
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(width: 8),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    widget.author,
-                    style: const TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    widget.title.length > 65
-                        ? widget.title.substring(0, 65)
-                        : widget.title,
-                    softWrap: true,
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
+        MyCard(cover: widget.cover, author: widget.author, title: widget.title),
+        // Row(
+        //   mainAxisAlignment: MainAxisAlignment.start,
+        //   crossAxisAlignment: CrossAxisAlignment.start,
+        //   children: [
+        //     ClipRRect(
+        //       borderRadius: BorderRadius.circular(5.0),
+        //       child: SizedBox(
+        //         width: 80,
+        //         height: 90,
+        //         child: FittedBox(
+        //           fit: BoxFit.cover,
+        //           child: Image.network(
+        //             widget.cover,
+        //           ),
+        //         ),
+        //       ),
+        //     ),
+        //     const SizedBox(width: 8),
+        //     Expanded(
+        //       child: Column(
+        //         crossAxisAlignment: CrossAxisAlignment.start,
+        //         children: <Widget>[
+        //           Text(
+        //             widget.author,
+        //             style: const TextStyle(fontWeight: FontWeight.bold),
+        //           ),
+        //           Text(
+        //             widget.title.length > 65
+        //                 ? widget.title.substring(0, 65)
+        //                 : widget.title,
+        //             softWrap: true,
+        //           ),
+        //         ],
+        //       ),
+        //     ),
+        //   ],
+        // ),
         if (_progress != null) ...[
           const SizedBox(
             height: 10.0,
