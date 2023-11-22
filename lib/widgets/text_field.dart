@@ -49,7 +49,7 @@ class _MyTextFieldState extends State<MyTextField> {
               color: Color.fromRGBO(245, 246, 248, 1.0),
             ),
           ),
-          fillColor: const Color.fromRGBO(245, 246, 248, 1.0),
+          fillColor: Colors.grey.shade100,
           filled: true,
           hintText: widget.hintText,
           errorText: widget.hasError ? "Error occured!" : null,

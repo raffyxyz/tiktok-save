@@ -1,7 +1,13 @@
+import 'package:downloader_app/models/History.dart';
 import 'package:downloader_app/screens/main_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/adapters.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+  Hive.registerAdapter(HistoryAdapter());
+  await Hive.openBox("historyBox");
   runApp(const MyApp());
 }
 
