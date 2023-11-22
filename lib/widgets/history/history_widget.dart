@@ -22,32 +22,37 @@ class _HistoryWidgetState extends State<HistoryWidget> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16.0),
-      child: Expanded(
-        child: ValueListenableBuilder(
-          valueListenable: historyBox.listenable(),
-          builder: (context, Box box, widget) {
-            if (box.isEmpty) {
-              return const Text("Empty");
-            } else {
-              return ListView.builder(
-                itemCount: box.length,
-                itemBuilder: (context, index) {
-                  var currentBox = box;
-                  var historyData = currentBox.getAt(box.length - 1 - index)!;
+      child: Row(
+        children: [
+          Expanded(
+            child: ValueListenableBuilder(
+              valueListenable: historyBox.listenable(),
+              builder: (context, Box box, widget) {
+                if (box.isEmpty) {
+                  return const Center(child: Text("No history."));
+                } else {
+                  return ListView.builder(
+                    itemCount: box.length,
+                    itemBuilder: (context, index) {
+                      var currentBox = box;
+                      var historyData =
+                          currentBox.getAt(box.length - 1 - index)!;
 
-                  return Padding(
-                    padding: const EdgeInsets.only(bottom: 8.0),
-                    child: MyCard(
-                      cover: historyData.cover,
-                      author: historyData.author,
-                      title: historyData.title,
-                    ),
+                      return Padding(
+                        padding: const EdgeInsets.only(bottom: 8.0),
+                        child: MyCard(
+                          cover: historyData.cover,
+                          author: historyData.author,
+                          title: historyData.title,
+                        ),
+                      );
+                    },
                   );
-                },
-              );
-            }
-          },
-        ),
+                }
+              },
+            ),
+          ),
+        ],
       ),
     );
   }

@@ -62,7 +62,7 @@ class _ResultState extends State<Result> {
       },
       onDownloadCompleted: (path) {
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-          content: Text("Download finished."),
+          content: Center(child: Text("Download finished.")),
         ));
         setState(() {
           _progress = null;
@@ -73,7 +73,7 @@ class _ResultState extends State<Result> {
       },
       onDownloadError: (error) {
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-          content: Text("Download failed."),
+          content: Center(child: Text("Download failed.")),
         ));
         setState(() {
           _progress = null;

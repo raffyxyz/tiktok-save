@@ -38,7 +38,7 @@ class GuideWidget extends StatelessWidget {
             const Steps(
               no: "3",
               message:
-                  "Open NoMarkTik app and paste the tiktok video link you copied.",
+                  "Open Tiktok Save app and paste the tiktok video link you copied.",
             ),
             Image.asset("assets/step_3.png"),
             const SizedBox(
