@@ -50,7 +50,7 @@ class _ResultState extends State<Result> {
   void _downloadVideo(String id, String play, BuildContext context) async {
     FileDownloader.downloadFile(
       url: widget.play,
-      name: "NoMarkTik-${widget.id}.mp4",
+      name: "TiktokSave-${widget.id}.mp4",
       downloadDestination: DownloadDestinations.publicDownloads,
       notificationType: NotificationType.all,
       onProgress: (name, progress) {
