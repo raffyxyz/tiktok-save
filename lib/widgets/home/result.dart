@@ -1,5 +1,6 @@
 import 'package:downloader_app/models/History.dart';
-import 'package:downloader_app/widgets/card.dart';
+import 'package:downloader_app/widgets/download_progress.dart';
+import 'package:downloader_app/widgets/home/video_info_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_file_downloader/flutter_file_downloader.dart';
 import 'package:hive/hive.dart';
@@ -44,7 +45,6 @@ class _ResultState extends State<Result> {
         title: widget.title,
         filePath: filePath);
     historyBox.add(newHistory);
-    debugPrint("Added history");
   }
 
   void _downloadVideo(String id, String play, BuildContext context) async {
@@ -83,7 +83,6 @@ class _ResultState extends State<Result> {
       },
     ).then((file) {
       _addHistory("${file?.path}");
-      debugPrint("file path: ${file?.path}");
     });
   }
 
@@ -91,83 +90,60 @@ class _ResultState extends State<Result> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        MyCard(cover: widget.cover, author: widget.author, title: widget.title),
-        // Row(
-        //   mainAxisAlignment: MainAxisAlignment.start,
-        //   crossAxisAlignment: CrossAxisAlignment.start,
-        //   children: [
-        //     ClipRRect(
-        //       borderRadius: BorderRadius.circular(5.0),
-        //       child: SizedBox(
-        //         width: 80,
-        //         height: 90,
-        //         child: FittedBox(
-        //           fit: BoxFit.cover,
-        //           child: Image.network(
-        //             widget.cover,
-        //           ),
-        //         ),
-        //       ),
-        //     ),
-        //     const SizedBox(width: 8),
-        //     Expanded(
-        //       child: Column(
-        //         crossAxisAlignment: CrossAxisAlignment.start,
-        //         children: <Widget>[
-        //           Text(
-        //             widget.author,
-        //             style: const TextStyle(fontWeight: FontWeight.bold),
-        //           ),
-        //           Text(
-        //             widget.title.length > 65
-        //                 ? widget.title.substring(0, 65)
-        //                 : widget.title,
-        //             softWrap: true,
-        //           ),
-        //         ],
-        //       ),
-        //     ),
-        //   ],
-        // ),
-        if (_progress != null) ...[
+        VideoInfoCard(
+          cover: widget.cover,
+          author: widget.author,
+          title: widget.title,
+          children: [
+            if (_isDownloading) ...[
+              const SizedBox(
+                height: 12.0,
+              ),
+              DownloadProgress(progress: _progress!),
+              const SizedBox(height: 2.0),
+              Text(
+                _status,
+                textAlign: TextAlign.center,
+                style: const TextStyle(fontSize: 10.0),
+              ),
+              const SizedBox(
+                height: 10.0,
+              ),
+            ],
+            if (!_isDownloading && !_isDownloadFinish) ...[
+              const SizedBox(
+                height: 8.0,
+              ),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () =>
+                      _downloadVideo(widget.id, widget.play, context),
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                    backgroundColor: Colors.purple,
+                  ),
+                  child: const Text(
+                    "Download Video",
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+            ]
+          ],
+        ),
+        if (_isDownloadFinish) ...[
           const SizedBox(
-            height: 10.0,
+            height: 20.0,
           ),
-          LinearProgressIndicator(
-            value: _progress! / 100,
-          ),
-        ],
-        if (_status.isNotEmpty) ...[
-          const SizedBox(height: 5.0),
           Text(
             _status,
             textAlign: TextAlign.center,
-            style: const TextStyle(fontSize: 10.0),
-          ),
-        ],
-        const SizedBox(
-          height: 10.0,
-        ),
-        if (!_isDownloadFinish) ...[
-          SizedBox(
-            width: double.infinity,
-            child: ElevatedButton(
-              onPressed: _isDownloading
-                  ? null
-                  : () => _downloadVideo(widget.id, widget.play, context),
-              style: ElevatedButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5.0),
-                ),
-                backgroundColor: Colors.purple,
-              ),
-              child: const Text(
-                "Download Video",
-                style: TextStyle(
-                  color: Colors.white,
-                ),
-              ),
-            ),
+            style: const TextStyle(fontSize: 12.0),
           ),
         ],
       ],

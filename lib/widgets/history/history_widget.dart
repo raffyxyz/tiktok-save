@@ -37,13 +37,14 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                       var currentBox = box;
                       var historyData =
                           currentBox.getAt(box.length - 1 - index)!;
-
                       return Padding(
                         padding: const EdgeInsets.only(bottom: 8.0),
                         child: MyCard(
                           cover: historyData.cover,
                           author: historyData.author,
                           title: historyData.title,
+                          filePath: historyData.filePath,
+                          index: box.length - 1 - index,
                         ),
                       );
                     },

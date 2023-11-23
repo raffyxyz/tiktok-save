@@ -62,7 +62,7 @@ class _HomeWidgetState extends State<HomeWidget> {
             },
           ),
           const SizedBox(
-            height: 30.0,
+            height: 20.0,
           ),
           FutureBuilder<Tiktok?>(
             future: tiktokInfo,
