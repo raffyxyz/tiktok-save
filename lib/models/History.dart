@@ -8,9 +8,9 @@ class History {
   final String cover;
   @HiveField(1)
   final String author;
-  @HiveField(3)
+  @HiveField(2)
   final String title;
-  @HiveField(4)
+  @HiveField(3)
   final String filePath;
 
   History({

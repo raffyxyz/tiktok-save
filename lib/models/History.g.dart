@@ -19,8 +19,8 @@ class HistoryAdapter extends TypeAdapter<History> {
     return History(
       cover: fields[0] as String,
       author: fields[1] as String,
-      title: fields[3] as String,
-      filePath: fields[4] as String,
+      title: fields[2] as String,
+      filePath: fields[3] as String,
     );
   }
 
@@ -32,9 +32,9 @@ class HistoryAdapter extends TypeAdapter<History> {
       ..write(obj.cover)
       ..writeByte(1)
       ..write(obj.author)
-      ..writeByte(3)
+      ..writeByte(2)
       ..write(obj.title)
-      ..writeByte(4)
+      ..writeByte(3)
       ..write(obj.filePath);
   }
 

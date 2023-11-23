@@ -17,7 +17,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
     return Container(
       color: Colors.white,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 50.0, vertical: 10.0),
+        padding: const EdgeInsets.symmetric(horizontal: 50.0, vertical: 5.0),
         child: GNav(
           backgroundColor: Colors.white,
           gap: 8,
