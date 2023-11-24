@@ -42,6 +42,12 @@ dependencies:
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   open_file_plus: ^3.4.1
+  flutter_native_splash: ^2.3.6
+
+flutter_native_splash:
+  image: assets/icon.png
+  color: "ffffff"
+  web: false
 
 flutter_launcher_icons:
   android: "launcher_icon"
