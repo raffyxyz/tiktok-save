@@ -2,6 +2,21 @@
 
 Download tiktok videos without the annoying watermark for free with no ads.
 
+## Screenshots
+
+<p align="center">
+  <img src="https://github.com/raffyamoguis/tiktok-save/blob/main/screenshots/01.png" width="250" />
+  <img src="https://github.com/raffyamoguis/tiktok-save/blob/main/screenshots/02.png" width="250" />
+  <img src="https://github.com/raffyamoguis/tiktok-save/blob/main/screenshots/03.png" width="250" />
+  <img src="https://github.com/raffyamoguis/tiktok-save/blob/main/screenshots/04.png" width="250" />
+</p>
+
+## Todo
+- [x] App ui.
+- [x] Functionality, api calls.
+- [ ] Refactor code base.
+- [ ] Settings content.
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
