@@ -26,73 +26,11 @@ class MyCard extends StatefulWidget {
 
 class _MyCardState extends State<MyCard> {
   late final Box historyBox;
-  // Tap location will be used use to position the context menu
-  Offset _tapPosition = Offset.zero;
 
   @override
   void initState() {
     super.initState();
     historyBox = Hive.box('historyBox');
-  }
-
-  void _getTapPosition(TapDownDetails details) {
-    final RenderBox referenceBox = context.findRenderObject() as RenderBox;
-    setState(() {
-      _tapPosition = referenceBox.globalToLocal(details.globalPosition);
-    });
-  }
-
-  // This function will be called when you long press on the blue box or the image
-  void _showContextMenu(BuildContext context) async {
-    // final RenderObject? overlay =
-    // Overlay.of(context)?.context.findRenderObject();
-    final RenderBox overlay =
-        Overlay.of(context).context.findRenderObject() as RenderBox;
-
-    final result = await showMenu(
-        context: context,
-        shadowColor: Colors.grey.shade100,
-        color: Colors.grey.shade100,
-        surfaceTintColor: Colors.grey.shade100,
-
-        // Show the context menu at the tap location
-        position: RelativeRect.fromRect(
-          _tapPosition & const Size(40, 40), // This line is changed
-          Offset.zero & overlay.size,
-        ),
-        // position: RelativeRect.fromRect(
-        //     Rect.fromLTWH(_tapPosition.dx, _tapPosition.dy, 30, 30),
-        //     Rect.fromLTWH(0, 0, overlay!.paintBounds.size.width,
-        //         overlay.paintBounds.size.height)),
-
-        // set a list of choices for the context menu
-        items: [
-          const PopupMenuItem(
-            value: 'open',
-            child: Text('Open'),
-          ),
-          const PopupMenuItem(
-            value: 'remove',
-            child: Text('Remove'),
-          ),
-          const PopupMenuItem(
-            value: 'delete',
-            child: Text('Delete'),
-          ),
-        ]);
-
-    // Implement the logic for each choice here
-    switch (result) {
-      case 'open':
-        _openVideo(widget.filePath);
-        break;
-      case 'remove':
-        _removeVideo(widget.index);
-        break;
-      case 'delete':
-        _deleteVideo(widget.filePath, widget.index);
-        break;
-    }
   }
 
   void _openVideo(String filepath) async {
