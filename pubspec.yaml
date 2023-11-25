@@ -42,6 +42,7 @@ dependencies:
   hive_flutter: ^1.1.0
   open_file_plus: ^3.4.1
   flutter_native_splash: ^2.3.6
+  connectivity_plus: ^5.0.2
 
 flutter_native_splash:
   image: assets/icon.png

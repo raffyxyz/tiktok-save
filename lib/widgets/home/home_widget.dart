@@ -32,11 +32,20 @@ class _HomeWidgetState extends State<HomeWidget> {
     super.dispose();
   }
 
-  bool isValidTiktokLink(String url) {
+  bool _isValidTiktokLink(String url) {
     RegExp tiktokUrlRegex =
         RegExp(r'https:\/\/(www\.|vm\.|vt\.)?tiktok\.com\/.*');
 
     return tiktokUrlRegex.hasMatch(url);
+  }
+
+  void _handleLinkChange(String value) {
+    if (_isValidTiktokLink(value)) {
+      setState(() {
+        tiktokApiClient.apiUrl = value;
+        tiktokInfo = tiktokApiClient.fetchTiktokInfo();
+      });
+    }
   }
 
   @override
@@ -52,14 +61,7 @@ class _HomeWidgetState extends State<HomeWidget> {
             obscureText: false,
             icon: const Icon(Icons.link_outlined),
             borderRadius: 5.0,
-            onChange: (value) {
-              if (isValidTiktokLink(value)) {
-                setState(() {
-                  tiktokApiClient.apiUrl = value;
-                  tiktokInfo = tiktokApiClient.fetchTiktokInfo();
-                });
-              }
-            },
+            onChange: (value) => _handleLinkChange(value),
           ),
           const SizedBox(
             height: 20.0,
