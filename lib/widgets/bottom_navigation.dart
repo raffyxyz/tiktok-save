@@ -22,8 +22,9 @@ class _BottomNavigationState extends State<BottomNavigation> {
   @override
   Widget build(BuildContext context) {
     return NavigationBar(
-      backgroundColor: Colors.grey.shade200,
-      surfaceTintColor: Colors.grey.shade200,
+      height: 70,
+      backgroundColor: Colors.grey.shade100,
+      surfaceTintColor: Colors.grey.shade100,
       onDestinationSelected: (int index) => _onItemTapped(index),
       indicatorColor: Colors.purple.withOpacity(0.2),
       selectedIndex: _currentIndex,
