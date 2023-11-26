@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:downloader_app/const/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:open_file_plus/open_file_plus.dart';
@@ -93,9 +94,9 @@ class _MyCardState extends State<MyCard> {
         onLongPress: () => showDialog<String>(
           context: context,
           builder: (BuildContext context) => Dialog(
-            backgroundColor: Colors.grey.shade100,
-            shadowColor: Colors.grey.shade100,
-            surfaceTintColor: Colors.grey.shade100,
+            backgroundColor: AppColors.secondaryBgColor,
+            shadowColor: AppColors.secondaryBgColor,
+            surfaceTintColor: AppColors.secondaryBgColor,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.0)),
             child: Padding(
@@ -112,7 +113,7 @@ class _MyCardState extends State<MyCard> {
                         Navigator.pop(context);
                       },
                       style: TextButton.styleFrom(
-                        foregroundColor: Colors.grey.shade800,
+                        foregroundColor: AppColors.foreGroundColor,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(5.0),
                         ),
@@ -130,7 +131,7 @@ class _MyCardState extends State<MyCard> {
                         Navigator.pop(context);
                       },
                       style: TextButton.styleFrom(
-                        foregroundColor: Colors.grey.shade800,
+                        foregroundColor: AppColors.foreGroundColor,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(5.0),
                         ),
@@ -148,7 +149,7 @@ class _MyCardState extends State<MyCard> {
                         Navigator.pop(context);
                       },
                       style: TextButton.styleFrom(
-                        foregroundColor: Colors.grey.shade800,
+                        foregroundColor: AppColors.foreGroundColor,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(5.0),
                         ),
@@ -180,7 +181,7 @@ class _MyCardState extends State<MyCard> {
         ),
         onTap: () => _openVideo(widget.filePath),
         child: Container(
-          color: Colors.grey.shade100,
+          color: AppColors.secondaryBgColor,
           height: 100,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,

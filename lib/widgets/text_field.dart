@@ -1,3 +1,4 @@
+import 'package:downloader_app/const/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class MyTextField extends StatefulWidget {
@@ -39,22 +40,22 @@ class _MyTextFieldState extends State<MyTextField> {
         decoration: InputDecoration(
           contentPadding:
               const EdgeInsets.symmetric(vertical: 14.0, horizontal: 16.0),
-          enabledBorder: const OutlineInputBorder(
+          enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: Color.fromRGBO(245, 246, 248, 1.0),
+              color: AppColors.secondaryBgColor,
             ),
           ),
-          focusedBorder: const OutlineInputBorder(
+          focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: Color.fromRGBO(245, 246, 248, 1.0),
+              color: AppColors.secondaryBgColor,
             ),
           ),
-          fillColor: Colors.grey.shade100,
+          fillColor: AppColors.secondaryBgColor,
           filled: true,
           hintText: widget.hintText,
           errorText: widget.hasError ? "Error occured!" : null,
-          hintStyle: const TextStyle(
-            color: Colors.black45,
+          hintStyle: TextStyle(
+            color: AppColors.secondaryTextColor,
             fontWeight: FontWeight.normal,
             fontSize: 16.0,
           ),
@@ -62,12 +63,12 @@ class _MyTextFieldState extends State<MyTextField> {
           prefixIconColor: MaterialStateColor.resolveWith(
             (Set<MaterialState> states) {
               if (states.contains(MaterialState.focused)) {
-                return Colors.black45;
+                return AppColors.secondaryTextColor;
               }
               if (states.contains(MaterialState.error)) {
-                return Colors.red;
+                return AppColors.errorColor;
               }
-              return Colors.black45;
+              return AppColors.secondaryTextColor;
             },
           ),
         ),

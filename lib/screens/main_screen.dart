@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:developer' as developer;
 
+import 'package:downloader_app/const/app_colors.dart';
 import 'package:downloader_app/widgets/bottom_navigation.dart';
 import 'package:downloader_app/widgets/history/history_widget.dart';
 import 'package:downloader_app/widgets/home/home_widget.dart';
@@ -84,10 +85,10 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.backgroundColor,
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        surfaceTintColor: Colors.white,
+        backgroundColor: AppColors.backgroundColor,
+        surfaceTintColor: AppColors.backgroundColor,
         title: const Text(
           "Tiktok Save",
           style: TextStyle(fontWeight: FontWeight.bold),
