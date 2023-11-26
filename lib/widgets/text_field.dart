@@ -9,6 +9,7 @@ class MyTextField extends StatefulWidget {
   final Icon icon;
   final double borderRadius;
   final bool hasError;
+  final bool readOnly;
   final Function(String) onChange;
 
   const MyTextField({
@@ -19,6 +20,7 @@ class MyTextField extends StatefulWidget {
     required this.icon,
     this.borderRadius = 25.0,
     this.hasError = false,
+    this.readOnly = false,
     required this.onChange,
   });
 
@@ -32,6 +34,7 @@ class _MyTextFieldState extends State<MyTextField> {
     return ClipRRect(
       borderRadius: BorderRadius.circular(widget.borderRadius),
       child: TextField(
+        readOnly: widget.readOnly,
         controller: widget.controller,
         obscureText: widget.obscureText,
         onChanged: (value) {
