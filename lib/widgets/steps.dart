@@ -1,3 +1,4 @@
+import 'package:downloader_app/const/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class Steps extends StatelessWidget {
@@ -10,19 +11,19 @@ class Steps extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
-      // crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
           width: 20.0,
           height: 20.0,
-          decoration: const BoxDecoration(
-            color: Colors.purple,
+          decoration: BoxDecoration(
+            color: AppColors.primaryColor,
             shape: BoxShape.circle,
           ),
           child: Center(
             child: Text(
               no,
-              style: const TextStyle(color: Colors.white, fontSize: 12.0),
+              style: const TextStyle(
+                  color: AppColors.backgroundColor, fontSize: 12.0),
             ),
           ),
         ),

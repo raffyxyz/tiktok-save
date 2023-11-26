@@ -1,3 +1,4 @@
+import 'package:downloader_app/const/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class VideoInfoCard extends StatelessWidget {
@@ -22,7 +23,7 @@ class VideoInfoCard extends StatelessWidget {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(10.0),
             child: Container(
-              color: Colors.grey.shade100,
+              color: AppColors.secondaryBgColor,
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Column(
