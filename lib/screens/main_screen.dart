@@ -46,20 +46,6 @@ class _MainScreenState extends State<MainScreen> {
           "Tiktok Save",
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                content: Center(
-                    child: Text(
-                  "In development.",
-                )),
-              ));
-            },
-            icon: const Icon(Icons.settings),
-            tooltip: "Settings",
-          ),
-        ],
       ),
       body: IndexedStack(
         index: _selectedPage,
