@@ -130,6 +130,7 @@ class _ResultState extends State<Result> {
                     "Download Video",
                     style: TextStyle(
                       color: AppColors.backgroundColor,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
