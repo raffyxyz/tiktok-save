@@ -15,7 +15,7 @@ Download tiktok videos without the annoying watermark for free with no ads.
 ## Todo
 - [x] App ui.
 - [x] Functionality, api calls.
-- [ ] Refactor code base.
+- [ ] Add a sharing intent.
 
 ## Getting Started
 
