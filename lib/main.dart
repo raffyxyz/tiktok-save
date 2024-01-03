@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
       title: 'Tiktok Save',
       theme: ThemeData(
         colorScheme: colorScheme,
-        fontFamily: GoogleFonts.quicksand().fontFamily,
+        fontFamily: GoogleFonts.outfit().fontFamily,
         useMaterial3: true,
       ),
       home: const MainScreen(),
