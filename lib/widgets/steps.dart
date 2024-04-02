@@ -1,4 +1,3 @@
-import 'package:downloader_app/const/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class Steps extends StatelessWidget {

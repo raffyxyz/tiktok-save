@@ -1,4 +1,3 @@
-import 'package:downloader_app/const/app_colors.dart';
 import 'package:downloader_app/widgets/bottom_navigation.dart';
 import 'package:downloader_app/widgets/history/history_widget.dart';
 import 'package:downloader_app/widgets/home/home_widget.dart';

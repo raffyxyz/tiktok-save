@@ -1,4 +1,3 @@
-import 'package:downloader_app/const/app_colors.dart';
 import 'package:downloader_app/models/History.dart';
 import 'package:downloader_app/widgets/download_progress.dart';
 import 'package:downloader_app/widgets/home/video_info_card.dart';
