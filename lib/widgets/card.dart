@@ -98,7 +98,8 @@ class _MyCardState extends State<MyCard> {
             shadowColor: AppColors.secondaryBgColor,
             surfaceTintColor: AppColors.secondaryBgColor,
             shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0)),
+              borderRadius: BorderRadius.circular(10.0),
+            ),
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
@@ -180,45 +181,48 @@ class _MyCardState extends State<MyCard> {
           ),
         ),
         onTap: () => _openVideo(widget.filePath),
-        child: Container(
-          color: AppColors.secondaryBgColor,
-          height: 100,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const SizedBox(width: 8),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(5.0),
-                child: SizedBox(
-                  width: 80,
-                  height: 80,
-                  child: FittedBox(
-                    fit: BoxFit.cover,
-                    child: Image.network(widget.cover),
+        child: Card.filled(
+          // color: AppColors.secondaryBgColor,
+          // height: 100,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const SizedBox(width: 8),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(5.0),
+                  child: SizedBox(
+                    width: 80,
+                    height: 80,
+                    child: FittedBox(
+                      fit: BoxFit.cover,
+                      child: Image.network(widget.cover),
+                    ),
                   ),
                 ),
-              ),
-              const SizedBox(width: 8),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      widget.author,
-                      style: const TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    Text(
-                      widget.title.length > 65
-                          ? widget.title.substring(0, 65)
-                          : widget.title,
-                      softWrap: true,
-                    ),
-                  ],
+                const SizedBox(width: 8),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        widget.author,
+                        style: const TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        widget.title.length > 65
+                            ? widget.title.substring(0, 65)
+                            : widget.title,
+                        softWrap: true,
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

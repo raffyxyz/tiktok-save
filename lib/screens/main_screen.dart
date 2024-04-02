@@ -38,10 +38,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.backgroundColor,
       appBar: AppBar(
-        backgroundColor: AppColors.backgroundColor,
-        surfaceTintColor: AppColors.backgroundColor,
         title: const Text(
           "Tiktok Save",
           style: TextStyle(fontWeight: FontWeight.bold),

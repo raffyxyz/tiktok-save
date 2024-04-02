@@ -15,15 +15,13 @@ class Steps extends StatelessWidget {
         Container(
           width: 20.0,
           height: 20.0,
-          decoration: BoxDecoration(
-            color: AppColors.primaryColor,
+          decoration: const BoxDecoration(
+            // color: AppColors.primaryColor,
             shape: BoxShape.circle,
           ),
           child: Center(
             child: Text(
               no,
-              style: const TextStyle(
-                  color: AppColors.backgroundColor, fontSize: 12.0),
             ),
           ),
         ),

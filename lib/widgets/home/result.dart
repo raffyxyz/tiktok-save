@@ -117,19 +117,17 @@ class _ResultState extends State<Result> {
               ),
               SizedBox(
                 width: double.infinity,
-                child: ElevatedButton(
+                child: FilledButton(
                   onPressed: () =>
                       _downloadVideo(widget.id, widget.play, context),
-                  style: ElevatedButton.styleFrom(
+                  style: FilledButton.styleFrom(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(5.0),
                     ),
-                    backgroundColor: AppColors.primaryColor,
                   ),
                   child: const Text(
                     "Download Video",
                     style: TextStyle(
-                      color: AppColors.backgroundColor,
                       fontWeight: FontWeight.bold,
                     ),
                   ),

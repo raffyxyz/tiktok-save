@@ -1,4 +1,3 @@
-import 'package:downloader_app/const/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavigation extends StatefulWidget {
@@ -24,10 +23,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
   Widget build(BuildContext context) {
     return NavigationBar(
       height: 70,
-      backgroundColor: AppColors.secondaryBgColor,
-      surfaceTintColor: AppColors.secondaryBgColor,
       onDestinationSelected: (int index) => _onItemTapped(index),
-      indicatorColor: AppColors.primaryColor.withOpacity(0.2),
       selectedIndex: _currentIndex,
       destinations: const [
         NavigationDestination(
