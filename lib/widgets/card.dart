@@ -4,6 +4,7 @@ import 'package:downloader_app/const/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:open_file_plus/open_file_plus.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class MyCard extends StatefulWidget {
   final String cover;
@@ -89,8 +90,6 @@ class _MyCardState extends State<MyCard> {
     return ClipRRect(
       borderRadius: BorderRadius.circular(10.0),
       child: GestureDetector(
-        // onTapDown: (details) => _getTapPosition(details),
-        // onLongPress: () => _showContextMenu(context),
         onLongPress: () => showDialog<String>(
           context: context,
           builder: (BuildContext context) => Dialog(
@@ -182,8 +181,6 @@ class _MyCardState extends State<MyCard> {
         ),
         onTap: () => _openVideo(widget.filePath),
         child: Card.filled(
-          // color: AppColors.secondaryBgColor,
-          // height: 100,
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(
@@ -198,7 +195,13 @@ class _MyCardState extends State<MyCard> {
                     height: 80,
                     child: FittedBox(
                       fit: BoxFit.cover,
-                      child: Image.network(widget.cover),
+                      child: CachedNetworkImage(
+                        imageUrl: widget.cover,
+                        placeholder: (context, url) =>
+                            const CircularProgressIndicator(),
+                        errorWidget: (context, url, error) =>
+                            const Icon(Icons.error),
+                      ),
                     ),
                   ),
                 ),
