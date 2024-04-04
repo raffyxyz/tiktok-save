@@ -31,9 +31,6 @@ class _HomeWidgetState extends State<HomeWidget> {
   late final TiktokApiClient tiktokApiClient;
   late Future<Tiktok?> tiktokInfo;
 
-  ClipboardData? _clipboardData;
-  Timer? _timer;
-
   @override
   void initState() {
     super.initState();
@@ -45,32 +42,13 @@ class _HomeWidgetState extends State<HomeWidget> {
 
     _connectivitySubscription =
         _connectivity.onConnectivityChanged.listen(_updateConnectionStatus);
-
-    _setupClipboardListener();
   }
 
   @override
   void dispose() {
     tiktokLinkController.dispose();
     _connectivitySubscription.cancel();
-    _timer?.cancel();
     super.dispose();
-  }
-
-  Future<void> _setupClipboardListener() async {
-    _clipboardData = await Clipboard.getData(Clipboard.kTextPlain);
-    tiktokLinkController.text = _clipboardData?.text ?? '';
-    _timer = Timer.periodic(const Duration(seconds: 1), _checkClipboardChanges);
-  }
-
-  void _checkClipboardChanges(Timer timer) async {
-    final clipboardData = await Clipboard.getData(Clipboard.kTextPlain);
-    if (clipboardData != _clipboardData) {
-      setState(() {
-        _clipboardData = clipboardData;
-        tiktokLinkController.text = _clipboardData?.text ?? '';
-      });
-    }
   }
 
   // Platform messages are asynchronous, so we initialize in an async method.
