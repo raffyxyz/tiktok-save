@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:downloader_app/const/app_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -22,8 +23,7 @@ class VideoInfoCard extends StatelessWidget {
         Flexible(
           child: ClipRRect(
             borderRadius: BorderRadius.circular(10.0),
-            child: Container(
-              color: AppColors.secondaryBgColor,
+            child: Card.filled(
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Column(
@@ -39,7 +39,13 @@ class VideoInfoCard extends StatelessWidget {
                             height: 80,
                             child: FittedBox(
                               fit: BoxFit.cover,
-                              child: Image.network(cover),
+                              child: CachedNetworkImage(
+                                imageUrl: cover,
+                                placeholder: (context, url) =>
+                                    const CircularProgressIndicator(),
+                                errorWidget: (context, url, error) =>
+                                    const Icon(Icons.error),
+                              ),
                             ),
                           ),
                         ),
