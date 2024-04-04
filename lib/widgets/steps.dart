@@ -1,3 +1,4 @@
+import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 
 class Steps extends StatelessWidget {
@@ -15,12 +16,13 @@ class Steps extends StatelessWidget {
           width: 20.0,
           height: 20.0,
           decoration: const BoxDecoration(
-            // color: AppColors.primaryColor,
+            color: FlexColor.purpleM3LightSecondary,
             shape: BoxShape.circle,
           ),
           child: Center(
             child: Text(
               no,
+              style: const TextStyle(color: Colors.white),
             ),
           ),
         ),
