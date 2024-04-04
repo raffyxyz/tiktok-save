@@ -53,7 +53,6 @@ class _MyTextFieldState extends State<MyTextField> {
               color: AppColors.secondaryBgColor,
             ),
           ),
-          fillColor: AppColors.secondaryBgColor,
           filled: true,
           hintText: widget.hintText,
           errorText: widget.hasError ? "Error occured!" : null,
