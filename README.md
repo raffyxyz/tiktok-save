@@ -5,10 +5,10 @@ Download tiktok videos without the annoying watermark for free with no ads.
 ## Screenshots
 
 <p align="center">
-  <img src="https://github.com/raffyamoguis/tiktok-save/blob/main/assets/screenshots/01.png" width="250" />
-  <img src="https://github.com/raffyamoguis/tiktok-save/blob/main/assets/screenshots/02.png" width="250" />
-  <img src="https://github.com/raffyamoguis/tiktok-save/blob/main/assets/screenshots/03.png" width="250" />
-  <img src="https://github.com/raffyamoguis/tiktok-save/blob/main/assets/screenshots/04.png" width="250" />
+  <img src="https://github.com/raffyxyz/tiktok-save/blob/main/assets/screenshots/01.png" width="250" />
+  <img src="https://github.com/raffyxyz/tiktok-save/blob/main/assets/screenshots/02.png" width="250" />
+  <img src="https://github.com/raffyxyz/tiktok-save/blob/main/assets/screenshots/03.png" width="250" />
+  <img src="https://github.com/raffyxyz/tiktok-save/blob/main/assets/screenshots/04.png" width="250" />
 </p>
 
 ## Todo
