@@ -11,21 +11,25 @@ Download tiktok videos without the annoying watermark for free with no ads.
   <img src="https://github.com/raffyxyz/tiktok-save/blob/main/assets/screenshots/04.png" width="250" />
 </p>
 
-## Todo
+## Installation
 
-- [x] App ui.
-- [x] Functionality, api calls.
-- [ ] Add a sharing intent.
+### Via Obtanium(Recommended)
+Download [Obtanium](https://github.com/ImranR98/Obtainium/releases) to handle App Updates easily.
 
-## Getting Started
+- Open Obtanium App and go to the Add App.
+- Enter this to the App Source Url text field https://github.com/raffyxyz/tiktok-save.
+- Then click on Add to add Tiktok Save app.
+- Go to Apps tab click on the Tiktok Save then download and install.
+- Obtanium will handle new version releases automatically.
 
-This project is a starting point for a Flutter application.
+### Manual Installation
 
-A few resources to get you started if this is your first Flutter project:
+- Download Tiktok Save thru [release](https://github.com/raffyxyz/tiktok-save/releases) page.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Contributions
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+This project is open for contributions just forked the repo and create a pull request.
+
+## Acknowledgement
+
+This project uses tiktokwm API.
