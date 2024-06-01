@@ -52,6 +52,7 @@ class _ResultState extends State<Result> {
       url: widget.play,
       name: "TiktokSave-${widget.id}.mp4",
       downloadDestination: DownloadDestinations.publicDownloads,
+      subPath: "TiktokSave",
       notificationType: NotificationType.all,
       onProgress: (name, progress) {
         setState(() {
